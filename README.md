@@ -1,47 +1,126 @@
-# Astro Starter Kit: Minimal
+# append-astro
 
-```sh
-bun create astro@latest -- --template minimal
+A progressive migration of the APPEND React/Vite app into [Astro](https://astro.build), taking advantage of Astro’s static-first performance and islands architecture.
+
+---
+
+## 🚀 Features
+
+* **Islands Architecture**
+  React components (`Hero`, `Services`, `Process`, etc.) live inside a single `<client:only>` island, reducing client-side JS payload.
+
+* **Tailwind CSS**
+  Utility-first styling with a custom Tailwind config, CSS variables, and animations.
+
+* **TypeScript everywhere**
+  `*.ts`, `*.tsx`, and `*.astro` files all typed and enforced.
+
+* **React Context for i18n**
+  Language switcher powered by a lightweight React context, safe in SSR with a default fallback.
+
+* **Vite under the hood**
+  Fast dev server, HMR, and bundling via Astro/Vite integration.
+
+* **Bun-friendly**
+  Scripts runnable with Bun or Node/npm/yarn.
+
+---
+
+## 📦 Installation
+
+1. **Clone the repo**
+
+   ```bash
+   git clone https://github.com/Jonaunk/append-astro.git
+   cd append-astro
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   bun install
+   # or npm install
+   # or yarn install
+   ```
+
+---
+
+## 🔧 Development
+
+Start the Astro dev server:
+
+```bash
+bun run dev
+# or npm run dev
+# or yarn dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+Open `http://localhost:4321` in your browser. Changes to `.astro`, `.tsx`, or `.css` will hot-reload.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-## 🚀 Project Structure
+## 🛠️ Available Scripts
 
-Inside of your Astro project, you'll see the following folders and files:
+| Command   | Description                   |
+| --------- | ----------------------------- |
+| `dev`     | Run Astro in development mode |
+| `build`   | Build for production          |
+| `preview` | Preview the production build  |
+| `astro`   | Run any Astro CLI command     |
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+> Prefix with `bun run`, `npm run`, or `yarn` depending on your package manager.
+
+---
+
+## 🗂️ Project Structure
+
+```
+append-astro/
+├─ src/
+│  ├─ components/       # React components (App, Hero, Navbar, etc.)
+│  ├─ contexts/         # React Contexts (i18n)
+│  ├─ pages/            # Astro page entrypoints (*.astro)
+│  ├─ styles/           # Global CSS + Tailwind layers
+│  ├─ layouts/          # Shared Astro layouts
+│  ├─ hooks/            # Custom React hooks
+│  └─ lib/              # Utilities (cn, clsx+tw-merge)
+├─ public/              # Static assets (favicon, images…)
+├─ astro.config.mjs     # Astro configuration
+├─ tailwind.config.ts   # Tailwind CSS configuration
+├─ tsconfig.json        # TypeScript configuration
+├─ package.json         # Scripts & dependencies
+├─ bun.lockb            # Bun lockfile (if using Bun)
+└─ .gitignore           # Untracked files
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## ⚙️ Configuration
 
-Any static assets, like images, can be placed in the `public/` directory.
+* **Tailwind**: see `tailwind.config.ts`
+* **Astro**: see `astro.config.mjs`
+* **i18n**: `src/contexts/LanguageContext.tsx` provides Spanish (`es`) and English (`en`) translations, with a default fallback for SSR.
 
-## 🧞 Commands
+---
 
-All commands are run from the root of the project, from a terminal:
+## 🚀 Production Build
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+```bash
+bun run build
+# or npm run build
+# or yarn build
+```
 
-## 👀 Want to learn more?
+Then serve the `dist/` folder with any static-file server or deploy to platforms like Netlify, Vercel, or Cloudflare Pages.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+
+## 📖 Further Reading
+
+* [Astro Documentation](https://docs.astro.build)
+* [Tailwind CSS](https://tailwindcss.com)
+* [React Context](https://reactjs.org/docs/context.html)
+
+---
+
+> **Note:** This repository is a work-in-progress migration from a React/Vite SPA to Astro’s hybrid static+islands architecture. Contributions and feedback are welcome!
