@@ -1,0 +1,9 @@
+---
+import Navbar from './Navbar.astro';
+import Footer from './Footer.astro';
+export interface Props { lang?: 'es' | 'en' }
+const { lang = 'es' } = Astro.props;
+---
+<Navbar lang={lang} />
+<slot />
+<Footer lang={lang} />

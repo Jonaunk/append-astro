@@ -1,0 +1,82 @@
+---
+import { t } from '../lib/translations';
+export interface Props { lang?: 'es' | 'en' }
+const { lang = 'es' } = Astro.props;
+---
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+  <div class="absolute inset-0 circuit-background"></div>
+  <div class="absolute inset-0 opacity-10 pointer-events-none">
+    <div class="production-line">
+      <div class="code-block"></div>
+      <div class="code-block"></div>
+      <div class="code-block"></div>
+      <div class="server-node"></div>
+      <div class="code-block"></div>
+      <div class="server-node"></div>
+      <div class="code-block"></div>
+    </div>
+  </div>
+  <div class="gear-small top-1/4 left-1/4 text-append-metal">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" class="w-full h-full"><path stroke-width="0.5" d="M12 2v2m6.364.636l-1.414 1.414M22 12h-2M20.364 17.364l-1.414-1.414M12 20v2M4.05 19.95l1.414-1.414M2 12h2M4.05 4.05l1.414 1.414"/><circle cx="12" cy="12" r="3" stroke-width="0.5"/></svg>
+  </div>
+  <div class="gear-medium bottom-1/4 right-1/3 text-append-metal">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" class="w-full h-full"><path stroke-width="0.5" d="M12 2v2m6.364.636l-1.414 1.414M22 12h-2M20.364 17.364l-1.414-1.414M12 20v2M4.05 19.95l1.414-1.414M2 12h2M4.05 4.05l1.414 1.414"/><circle cx="12" cy="12" r="3" stroke-width="0.5"/></svg>
+  </div>
+  <div class="gear-large -top-20 -right-20 text-append-metal">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" class="w-full h-full"><path stroke-width="0.5" d="M12 2v2m6.364.636l-1.414 1.414M22 12h-2M20.364 17.364l-1.414-1.414M12 20v2M4.05 19.95l1.414-1.414M2 12h2M4.05 4.05l1.414 1.414"/><circle cx="12" cy="12" r="3" stroke-width="0.5"/></svg>
+  </div>
+  <div class="absolute top-1/3 left-10 opacity-20 animate-float">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-append-blue-accent"><path d="M16 18H3a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2z"/><polyline points="8 6 12 10 8 14"/><polyline points="12 6 16 10 12 14"/><line x1="20" y1="7" x2="20" y2="17"/><line x1="20" y1="7" x2="24" y2="7"/><line x1="20" y1="17" x2="24" y2="17"/></svg>
+  </div>
+  <div class="absolute bottom-1/3 right-10 opacity-20 animate-float" style="animation-delay:1s">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-append-metal-light"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </div>
+  <div class="container max-w-7xl mx-auto px-6 relative z-10">
+    <div class="text-center">
+      <div class="inline-block glass-card px-4 py-2 mb-6 rounded-full">
+        <span class="text-append-blue-accent font-mono text-sm">{t('hero.badge', lang)}</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight leading-tight text-white">
+        {t('hero.title1', lang)} <span class="text-append-blue-accent animate-pulse">{t('hero.title2', lang)}</span> {t('hero.title3', lang)} <br class="hidden md:block" />
+        {t('hero.title4', lang)} <span class="text-append-blue-accent animate-pulse">{t('hero.title5', lang)}</span>
+      </h1>
+      <p class="text-base md:text-lg text-append-metal-light max-w-3xl mx-auto mb-10">
+        {t('hero.description', lang)}
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#services" class="btn-primary w-full sm:w-auto">
+          {t('hero.exploreServices', lang)}
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24" class="inline-block ml-2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#contact" class="btn-outline w-full sm:w-auto">{t('hero.getInTouch', lang)}</a>
+      </div>
+      <div class="mt-16 glass-card p-8 max-w-4xl mx-auto">
+        <div class="text-left font-mono text-xs text-append-metal-light overflow-hidden">
+          <span class="text-append-blue-accent">$ </span>
+          <span class="animate-typing typing">{t('hero.terminal1', lang)}</span><br />
+          <span class="text-append-blue-accent">Building </span>
+          <span>{t('hero.terminal2', lang)}</span><br />
+          <span class="text-green-500">✓ </span>
+          <span>{t('hero.terminal3', lang)}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-append-metal-light animate-bounce">
+    <a href="#services">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </div>
+</section>
+<script>
+  const gear1 = document.querySelector('.gear-small');
+  const gear2 = document.querySelector('.gear-medium');
+  const gear3 = document.querySelector('.gear-large');
+  window.addEventListener('mousemove', (e) => {
+    const moveX = e.clientX - window.innerWidth / 2;
+    const moveY = e.clientY - window.innerHeight / 2;
+    if (gear1) gear1.style.transform = `translate(${moveX * 0.01}px, ${moveY * 0.01}px)`;
+    if (gear2) gear2.style.transform = `translate(${moveX * 0.02}px, ${moveY * 0.02}px)`;
+    if (gear3) gear3.style.transform = `translate(${moveX * 0.03}px, ${moveY * 0.03}px)`;
+  });
+</script>
