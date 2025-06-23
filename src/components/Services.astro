@@ -1,0 +1,42 @@
+---
+import { t } from '../lib/translations';
+export interface Props { lang?: 'es' | 'en' }
+const { lang = 'es' } = Astro.props;
+const services = [
+  { icon: 'code', title: t('capabilities1.title', lang), desc: t('capabilities1.desc', lang) },
+  { icon: 'laptop', title: t('capabilities2.title', lang), desc: t('capabilities2.desc', lang) },
+  { icon: 'database', title: t('capabilities3.title', lang), desc: t('capabilities3.desc', lang) },
+  { icon: 'server', title: t('capabilities4.title', lang), desc: t('capabilities4.desc', lang) },
+  { icon: 'cloud', title: t('capabilities5.title', lang), desc: t('capabilities5.desc', lang) },
+  { icon: 'chart', title: t('capabilities6.title', lang), desc: t('capabilities6.desc', lang) },
+  { icon: 'bar', title: t('capabilities7.title', lang), desc: t('capabilities7.desc', lang) },
+  { icon: 'zap', title: t('capabilities8.title', lang), desc: t('capabilities8.desc', lang) }
+];
+---
+<section id="services" class="relative py-24">
+  <div class="absolute inset-0 circuit-background"></div>
+  <div class="section-container relative z-10">
+    <div class="text-center mb-16">
+      <div class="inline-block glass-card px-4 py-2 mb-6 rounded-full">
+        <span class="text-append-blue-accent font-mono text-sm">{t('capabilities.title', lang)}</span>
+      </div>
+      <h2 class="section-title">{t('capabilities.subtitle', lang)}</h2>
+      <p class="section-subtitle">{t('capabilities.description', lang)}</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {services.map(service => (
+        <div class="feature-card h-full flex flex-col" key={service.title}>
+          <div class="bg-append-blue-accent/10 p-3 rounded-md w-fit mb-4">
+            <div class="text-append-blue-accent" aria-hidden="true">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+              </svg>
+            </div>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">{service.title}</h3>
+          <p class="text-append-metal-light text-sm flex-grow">{service.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

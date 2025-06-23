@@ -1,0 +1,74 @@
+---
+import { t } from '../lib/translations';
+export interface Props { lang?: 'es' | 'en' }
+const { lang = 'es' } = Astro.props;
+const qualities = [
+  { title: t('about.quality1.title', lang), desc: t('about.quality1.desc', lang) },
+  { title: t('about.quality2.title', lang), desc: t('about.quality2.desc', lang) },
+  { title: t('about.quality3.title', lang), desc: t('about.quality3.desc', lang) },
+  { title: t('about.quality4.title', lang), desc: t('about.quality4.desc', lang) }
+];
+---
+<section id="about" class="relative bg-append-darker py-24">
+  <div class="section-container">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="inline-block glass-card px-4 py-2 mb-6 rounded-full">
+          <span class="text-append-blue-accent font-mono text-sm">{t('about.badge', lang)}</span>
+        </div>
+        <h2 class="section-title">{t('about.title', lang)}</h2>
+        <p class="text-append-metal-light mb-8 leading-relaxed">{t('about.description', lang)}</p>
+        <div class="space-y-5">
+          {qualities.map(q => (
+            <div class="flex items-start gap-3" key={q.title}>
+              <svg width="20" height="20" fill="currentColor" class="text-append-blue-accent mt-1" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+              <div>
+                <h3 class="font-semibold text-white">{q.title}</h3>
+                <p class="text-append-metal-light text-sm">{q.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="relative">
+        <div class="glass-card p-8 blue-glow relative z-10">
+          <div class="grid grid-cols-2 gap-6">
+            <div class="glass-card p-5 flex flex-col items-center justify-center text-center">
+              <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" class="text-append-blue-accent mb-3"><circle cx="16" cy="16" r="14"/></svg>
+              <h3 class="text-xl font-bold">{t('about.card1.title', lang)}</h3>
+              <p class="text-append-metal-light text-sm mt-2">{t('about.card1.desc', lang)}</p>
+            </div>
+            <div class="glass-card p-5 flex flex-col items-center justify-center text-center">
+              <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" class="text-append-blue-accent mb-3"><circle cx="16" cy="16" r="14"/></svg>
+              <h3 class="text-xl font-bold">{t('about.card2.title', lang)}</h3>
+              <p class="text-append-metal-light text-sm mt-2">{t('about.card2.desc', lang)}</p>
+            </div>
+            <div class="glass-card p-5 flex flex-col items-center justify-center text-center">
+              <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" class="text-append-blue-accent mb-3"><circle cx="16" cy="16" r="14"/></svg>
+              <h3 class="text-xl font-bold">{t('about.card3.title', lang)}</h3>
+              <p class="text-append-metal-light text-sm mt-2">{t('about.card3.desc', lang)}</p>
+            </div>
+            <div class="glass-card p-5 flex flex-col items-center justify-center text-center relative overflow-hidden">
+              <div class="absolute inset-0 bg-append-blue-accent/10 flex items-center justify-center">
+                <div class="text-append-blue-accent font-mono">
+                  <span class="text-4xl font-bold">100%</span>
+                  <span class="block text-sm mt-1">{t('about.uptime', lang)}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-6 glass-card p-4 bg-append-darker/80">
+            <div class="font-mono text-xs">
+              <span class="text-append-blue-accent">$ </span>
+              <span>{t('about.terminal1', lang)}</span><br />
+              <span class="text-green-500">◉ </span>
+              <span class="text-append-metal-light">{t('about.terminal2', lang)}</span>
+            </div>
+          </div>
+        </div>
+        <div class="absolute h-full w-full top-8 left-8 border border-append-blue-accent/20 rounded-lg -z-10"></div>
+        <div class="absolute h-full w-full top-4 left-4 border border-append-blue-accent/10 rounded-lg -z-20"></div>
+      </div>
+    </div>
+  </div>
+</section>

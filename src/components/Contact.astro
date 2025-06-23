@@ -1,0 +1,88 @@
+---
+import { t } from '../lib/translations';
+export interface Props { lang?: 'es' | 'en' }
+const { lang = 'es' } = Astro.props;
+---
+<section id="contact" class="relative bg-append-darker py-24">
+  <div class="section-container">
+    <div class="text-center mb-16">
+      <div class="inline-block glass-card px-4 py-2 mb-6 rounded-full">
+        <span class="text-append-blue-accent font-mono text-sm">{t('contact.getInTouchTitle', lang)}</span>
+      </div>
+      <h2 class="section-title">{t('contact.startYourProject', lang)}</h2>
+      <p class="section-subtitle">{t('contact.startYourProjectDesc', lang)}</p>
+    </div>
+    <div class="max-w-4xl mx-auto">
+      <div class="glass-card p-8">
+        <form id="contact-form" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label for="name" class="block text-append-metal-light mb-2 text-sm">{t('contact.fullName', lang)}</label>
+              <input type="text" id="name" name="name" required class="input-field" placeholder="Tu nombre" />
+            </div>
+            <div>
+              <label for="email" class="block text-append-metal-light mb-2 text-sm">{t('contact.emailAddress', lang)}</label>
+              <input type="email" id="email" name="email" required class="input-field" placeholder="email@example.com" />
+            </div>
+          </div>
+          <div>
+            <label for="subject" class="block text-append-metal-light mb-2 text-sm">{t('contact.projectType', lang)}</label>
+            <select id="subject" name="subject" required class="input-field">
+              <option value="" disabled selected>{t('contact.selectProjectType', lang)}</option>
+              <option value="Web Application">{t('contact.selectProjectType1', lang)}</option>
+              <option value="Mobile App">{t('contact.selectProjectType2', lang)}</option>
+              <option value="Custom Software">{t('contact.selectProjectType3', lang)}</option>
+              <option value="System Integration">{t('contact.selectProjectType4', lang)}</option>
+              <option value="Maintenance Systems">{t('contact.selectProjectType6', lang)}</option>
+              <option value="Other">{t('contact.selectProjectType5', lang)}</option>
+            </select>
+          </div>
+          <div>
+            <label for="message" class="block text-append-metal-light mb-2 text-sm">{t('contact.projectDetails', lang)}</label>
+            <textarea id="message" name="message" rows="6" required class="input-field resize-none" placeholder="{t('contact.projectDetailsPlaceholder', lang)}"></textarea>
+          </div>
+          <div class="flex justify-end">
+            <button type="submit" class="btn-primary flex items-center gap-2">
+              {t('contact.sendMessage', lang)}
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 2L11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+        <div class="glass-card p-6 text-center">
+          <h3 class="text-lg font-semibold mb-2">{t('contact.location', lang)}</h3>
+          <p class="text-append-metal-light text-sm">Primera Junta 197<br />Quilmes, CP 1878</p>
+        </div>
+        <div class="glass-card p-6 text-center">
+          <h3 class="text-lg font-semibold mb-2">Email</h3>
+          <p class="text-append-metal-light text-sm">hello@append.com.ar<br />info@append.com.ar</p>
+        </div>
+        <div class="glass-card p-6 text-center">
+          <h3 class="text-lg font-semibold mb-2">{t('contact.phone', lang)}</h3>
+          <p class="text-append-metal-light text-sm">+54 11 3888-0723<br />{t('contact.businessHours', lang)}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  document.getElementById('contact-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = {
+      name: form.name.value,
+      email: form.email.value,
+      origin: 'append',
+      type: form.subject.value,
+      description: form.message.value
+    };
+    await fetch('https://append.com.ar/api/v1/Utilities/Contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    alert('{t('contact.sendMessageTitle', lang)}');
+    form.reset();
+  });
+</script>

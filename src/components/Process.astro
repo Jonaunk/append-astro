@@ -1,0 +1,61 @@
+---
+import { t } from '../lib/translations';
+export interface Props { lang?: 'es' | 'en' }
+const { lang = 'es' } = Astro.props;
+const steps = [
+  { title: `1. ${t('methodology1.title', lang)}`, desc: t('methodology1.desc', lang) },
+  { title: `2. ${t('methodology2.title', lang)}`, desc: t('methodology2.desc', lang) },
+  { title: `3. ${t('methodology3.title', lang)}`, desc: t('methodology3.desc', lang) },
+  { title: `4. ${t('methodology4.title', lang)}`, desc: t('methodology4.desc', lang) },
+  { title: `5. ${t('methodology5.title', lang)}`, desc: t('methodology5.desc', lang) },
+  { title: `6. ${t('methodology6.title', lang)}`, desc: t('methodology6.desc', lang) }
+];
+---
+<section id="process" class="relative py-24">
+  <div class="absolute inset-0 circuit-background"></div>
+  <div class="section-container relative z-10">
+    <div class="text-center mb-16">
+      <div class="inline-block glass-card px-4 py-2 mb-6 rounded-full">
+        <span class="text-append-blue-accent font-mono text-sm">{t('methodology.title', lang)}</span>
+      </div>
+      <h2 class="section-title">{t('methodology.subtitle', lang)}</h2>
+      <p class="section-subtitle">{t('methodology.description', lang)}</p>
+    </div>
+    <div class="relative">
+      <div class="hidden lg:block absolute top-1/2 left-0 w-full h-1 bg-append-metal-dark -translate-y-1/2 z-0"></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+        {steps.map(step => (
+          <div class="glass-card p-6 transition-all duration-300 hover:border-append-blue-accent" key={step.title}>
+            <div class="flex items-center mb-4">
+              <div class="bg-append-blue-accent/10 p-3 rounded-full mr-4">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="text-append-blue-accent"><circle cx="12" cy="12" r="10"/></svg>
+              </div>
+              <h3 class="text-xl font-semibold">{step.title}</h3>
+            </div>
+            <p class="text-append-metal-light">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-16 glass-card p-8 overflow-hidden">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-xl font-semibold mb-2">{t('methodology7.title', lang)}</h3>
+            <p class="text-append-metal-light text-sm mb-4">{t('methodology7.desc', lang)}</p>
+          </div>
+          <div class="flex">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" class="text-append-metal-light animate-spin"><circle cx="16" cy="16" r="14"/></svg>
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" class="text-append-metal-light animate-spin -ml-2"><circle cx="12" cy="12" r="10"/></svg>
+          </div>
+        </div>
+        <div class="w-full bg-append-metal-darker h-2 mt-4 rounded-full overflow-hidden">
+          <div class="bg-append-blue-accent h-full rounded-full animate-pulse" style="width:75%"></div>
+        </div>
+        <div class="flex justify-between mt-2 text-xs text-append-metal">
+          <span>Input</span>
+          <span>Processing...</span>
+          <span>Output</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

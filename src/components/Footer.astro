@@ -1,0 +1,48 @@
+---
+import { t } from '../lib/translations';
+export interface Props { lang?: 'es' | 'en' }
+const { lang = 'es' } = Astro.props;
+---
+<footer class="relative bg-append-dark pt-16 pb-8 border-t border-append-metal-darker">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
+      <div class="md:col-span-2">
+        <a href="#" class="flex items-center mb-6">
+          <span class="text-white font-mono text-2xl font-bold tracking-tight">APPEND<span class="text-append-blue-accent">.</span></span>
+        </a>
+        <p class="text-append-metal-light mb-6 max-w-md">{t('about.title2', lang)}</p>
+        <div class="flex space-x-4 text-append-metal">
+          <a href="#" class="hover:text-append-blue-accent transition-colors"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9 19c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9-4.03 9-9 9zm0-2c3.87 0 7-3.13 7-7s-3.13-7-7-7-7 3.13-7 7 3.13 7 7 7z"/><path d="M11 11V7h2v4h-2zm0 2h2v2h-2z"/></svg></a>
+          <a href="#" class="hover:text-append-blue-accent transition-colors"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M22 5.93c-.81.36-1.69.61-2.61.72.94-.56 1.66-1.45 2-2.51-.88.52-1.86.89-2.9 1.1a4.52 4.52 0 00-7.7 4.12 12.83 12.83 0 01-9.32-4.72 4.45 4.45 0 001.4 6A4.52 4.52 0 012 9.34v.05a4.49 4.49 0 003.6 4.41c-.44.12-.9.17-1.37.17-.33 0-.66-.03-.97-.09a4.52 4.52 0 004.23 3.16A9.05 9.05 0 012 19.54a12.78 12.78 0 006.92 2.03c8.3 0 12.84-6.88 12.84-12.84 0-.2 0-.41-.02-.61A9.2 9.2 0 0022 5.93z"/></svg></a>
+          <a href="#" class="hover:text-append-blue-accent transition-colors"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17 3H7c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h6v-7h-2v-3h2V9c0-2.21 1.79-4 4-4h2v3h-2c-.55 0-1 .45-1 1v2h3l-1 3h-2v7h3c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg></a>
+          <a href="#" class="hover:text-append-blue-accent transition-colors"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-2 9h-5v5h-2v-5H6V9h5V4h2v5h5v4z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold mb-4">{t('menu.company', lang)}</h3>
+        <ul class="space-y-3">
+          <li><a href="#about" class="text-append-metal-light hover:text-append-blue-accent transition-colors">{t('menu.about', lang)}</a></li>
+          <li><a href="#services" class="text-append-metal-light hover:text-append-blue-accent transition-colors">{t('menu.services', lang)}</a></li>
+          <li><a href="#process" class="text-append-metal-light hover:text-append-blue-accent transition-colors">{t('menu.process', lang)}</a></li>
+          <li><a href="#contact" class="text-append-metal-light hover:text-append-blue-accent transition-colors">{t('menu.contact', lang)}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold mb-4">{t('menu.solutions', lang)}</h3>
+        <ul class="space-y-3">
+          <li><a href="#" class="text-append-metal-light hover:text-append-blue-accent transition-colors">{t('contact.selectProjectType1', lang)}</a></li>
+          <li><a href="#" class="text-append-metal-light hover:text-append-blue-accent transition-colors">{t('contact.selectProjectType2', lang)}</a></li>
+          <li><a href="#" class="text-append-metal-light hover:text-append-blue-accent transition-colors">{t('contact.selectProjectType3', lang)}</a></li>
+          <li><a href="#" class="text-append-metal-light hover:text-append-blue-accent transition-colors">{t('contact.selectProjectType4', lang)}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-8 border-t border-append-metal-darker flex flex-col md:flex-row justify-between items-center">
+      <p class="text-append-metal text-sm mb-4 md:mb-0">&copy; {new Date().getFullYear()} APPEND Software Factory. All rights reserved.</p>
+      <div class="flex space-x-6">
+        <a href="#" class="text-append-metal text-sm hover:text-append-blue-accent transition-colors">Privacy Policy</a>
+        <a href="#" class="text-append-metal text-sm hover:text-append-blue-accent transition-colors">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>

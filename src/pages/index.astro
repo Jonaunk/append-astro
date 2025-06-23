@@ -1,20 +1,21 @@
 ---
-export const ssr = false; 
-import Layout from "../Layouts/Layout.astro";
-import App from "../components/App";
-import Hero from "../components/Hero";
-import Services from "../components/Services";
-import Process from "../components/Process";
-import About from "../components/About";
-import Contact from "../components/Contact";
+export const ssr = false;
+import Layout from '../Layouts/Layout.astro';
+import App from '../components/App.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Process from '../components/Process.astro';
+import About from '../components/About.astro';
+import Contact from '../components/Contact.astro';
 import '../index.css';
+const lang = 'es';
 ---
 <Layout>
-  <App client:load>
-    <Hero />
-    <Services />
-    <Process />
-    <About />
-    <Contact />
+  <App lang={lang}>
+    <Hero lang={lang} />
+    <Services lang={lang} />
+    <Process lang={lang} />
+    <About lang={lang} />
+    <Contact lang={lang} />
   </App>
 </Layout>
